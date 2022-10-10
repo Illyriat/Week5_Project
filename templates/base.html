@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Inventory</title>
+</head>
+<body>
+    <main>
+        <header>
+            <h1 class="Title">SoundyStock</h1>
+            <nav>
+                <ul>
+                    <li class="nav">
+                        <a class="button" href="/index.html">Home</a>
+                    </li>
+                    <li class="nav">
+                        <a class="button" href="">Stock</a>
+                    </li>
+                    <li class="nav">
+                        <a class="button" href="">Add To Stock</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <section class="base">
+            <hr>
+                {% block content %}
+                    
+                {% endblock content %}
+            </hr>
+        </section>
+    </main>
+    <footer>
+        <p class="footer">
+            &copy; By James Robson
+        </p>
+    </footer>
+</body>
+</html>

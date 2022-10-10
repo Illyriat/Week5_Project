@@ -1,17 +1,17 @@
 from db.run_sql import run_sql
 
 from controllers.manufacture_controller import manufactures
-from models.djequip import Djequip
-from models.mic import Mic
-from models.desk import Desk
+
+from models.product import Product
 from models.manufacture import Manufacture
 
 
 def save(manufacture):
-    sql = "INSERT INTO manufactures(name) VALUES (%) RETURNING id"
+    sql = "INSERT INTO manufactures(name) VALUES (%s) RETURNING id"
     values = [manufacture.name]
     results = run_sql(sql, values)
-    manufacture.id = results[0]['id']
+    id = results[0]['id']
+    manufacture.id = id
     return manufacture
 
 def select_all():
@@ -36,38 +36,16 @@ def select(id):
     return manufacture
 
 
-def desks(manufacture):
-    desks = []
+def products(manufacture):
+    products = []
 
-    sql = "SELECT desks.* FROM desks INNER JOIN desks ON desks.desk_id = desks.id WHERE manufacture_id = %s"
+    sql = "SELECT products.* FROM products INNER JOIN products ON products.type_id = products.id WHERE manufacture_id = %s"
     values = [manufacture.id]
     results = run_sql(sql, values)
 
     for row in results:
-        desk = Desk(row['name'], row['id'])
-        desks.append(desk)
-
-def mics(manufacture):
-    mics = []
-
-    sql = "SELECT mics.* FROM mics INNER JOIN mics ON mics.mic_id = mics.id WHERE manufacture_id = %s"
-    values = [manufacture.id]
-    results = run_sql(sql, values)
-
-    for row in results:
-        mic = Mic(row['name'], row['id'])
-        mics.append(mic)   
-
-def djequip(manufacture):
-    djequips = []
-
-    sql = "SELECT djequips.* FROM djequips INNER JOIN djequips ON djequips.djequip_id = djequips.id WHERE manufacture_id = %s"
-    values = [manufacture.id]
-    results = run_sql(sql, values)
-
-    for row in results:
-        djequip = Djequip(row['name'], row['id'])
-        djequips.append(djequip)     
+        product = Product(row['name'], row['id'])
+        products.append(product)    
 
 def delete_all():
     sql = "DELETE FROM manufactures"

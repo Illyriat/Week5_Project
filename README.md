@@ -23,3 +23,9 @@ Repositories and Controller work. Save point.
 Fourth Commit, --
 
 Repositories and Controller work. Save point. Fixed some DB conflicts and typos
+
+--------------------------------------
+
+Fifth Commit, --
+
+Major changes to file structure to consolidate and make it all simpler to navigate around. Added some HTML to the base.html file.
