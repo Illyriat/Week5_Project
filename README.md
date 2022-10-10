@@ -17,3 +17,9 @@ Added some HTML files into the files structure.
 Third Commit, --
 
 Repositories and Controller work. Save point.
+
+-------------------------------------
+
+Fourth Commit, --
+
+Repositories and Controller work. Save point. Fixed some DB conflicts and typos

@@ -11,3 +11,31 @@ def save(desk):
     results = run_sql(sql, values)
     desk.id = results[0]['id']
     return desk
+
+def select_all():
+    desks = []
+
+    sql = "SELECT * FROM desks"
+    results = run_sql(sql)
+
+    for row in results:
+        manufacture = manufacture_repository.select(row['manufacture_id'])
+        desk = Desk(row['model'], row['descriptin'], row['stock_count'], row['trade_price'], row['sale_price'], row['id'], manufacture)
+        desks.append(desk)
+    return desks
+
+def manufacture():
+    sql = "SELECT * FROM manufactures WHERE id = %s"
+    values = [desk.manufacture.id]
+    results = run_sql(sql, values)[0]
+    desk = Desk(results['model'], results['id'])
+    return manufacture
+
+def delete_all():
+    sql = "DELETE FROM manufactures"
+    run_sql(sql)
+
+def delete(id):
+    sql = "DELETE FROM desks WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
