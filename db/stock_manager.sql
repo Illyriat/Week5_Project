@@ -37,7 +37,10 @@ CREATE TABLE djequip (
 
 CREATE TABLE manufacture (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255)
+    name VARCHAR(255),
+    mic_id INT REFERENCES mic(id) ON DELETE CASCADE,
+    djequip_id INT REFERENCES djqeuip(id) ON DELETE CASCADE,
+    desk_id INT REFERENCES desk(id) ON DELETE CASCADE
 );
 
 
