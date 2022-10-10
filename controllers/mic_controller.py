@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.mic import Mic
-from repositories.mic_repository as mic_repository
+from repositories.mic_repository import mic_repository
 
 mics_blueprint = Blueprint("mic", __name__)
 

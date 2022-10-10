@@ -3,8 +3,6 @@ DROP TABLE desk;
 DROP TABLE djequip;
 DROP TABLE mic;
 
--- FOREIGN ID's STILL TO PLACE
-
 CREATE TABLE mic (
     id SERIAL PRIMARY KEY,
     manufacture VARCHAR(255), 

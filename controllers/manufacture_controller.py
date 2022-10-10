@@ -1,11 +1,14 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.manufacture import Manufacture
-from repositories.manufacture_repository as manufacture_repository
+from repositories.manufacture_repository import *
+from repositories.desk_repository import *
+from repositories.mic_repository import *
+from repositories.djequip_repository import *
 
 manufactures_blueprint = Blueprint("manufacture", __name__)
 
-@manufactures_blueprint.route("/mic")
+@manufactures_blueprint.route("/manufacture")
 def manufactures():
     manufactures = manufactrue_repository.select_all()
     return render_template("manufactures/index.html", manufactures = manufactures)
