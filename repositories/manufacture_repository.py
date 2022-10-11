@@ -15,7 +15,7 @@ def save(manufacture):
     return manufacture
 
 def select_all():
-    manufacture = []
+    manufactures = []
 
     sql = "SELECT * FROM manufactures"
     results = run_sql(sql)

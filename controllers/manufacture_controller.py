@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 
-from repositories.manufacture_repository import *
-from repositories.product_repository import *
-from repositories.type_repository import *
+import repositories.manufacture_repository as manufacture_repository
+import repositories.product_repository as product_repository
+import repositories.type_repository as type_repository
 
 manufactures_blueprint = Blueprint("manufacture", __name__)
 

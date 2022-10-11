@@ -1,5 +1,5 @@
-DROP TABLE manufactures;
 DROP TABLE products;
+DROP TABLE manufactures;
 DROP TABLE types;
 
 CREATE TABLE types (
@@ -19,6 +19,6 @@ CREATE TABLE products (
     stock_count INT,
     trade_price FLOAT,
     sale_price FLOAT,
-    manufactures_id INT REFERENCES manufactures(id) ON DELETE CASCADE,
-    types_id INT REFERENCES types(id) ON DELETE CASCADE
+    manufacture_id INT REFERENCES manufactures(id) ON DELETE CASCADE,
+    type_id INT REFERENCES types(id) ON DELETE CASCADE
 );

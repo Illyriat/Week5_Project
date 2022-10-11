@@ -29,3 +29,9 @@ Repositories and Controller work. Save point. Fixed some DB conflicts and typos
 Fifth Commit, --
 
 Major changes to file structure to consolidate and make it all simpler to navigate around. Added some HTML to the base.html file.
+
+--------------------------------------
+
+Sixth Commit, --
+
+Fixed DB issuesin the controllers, models, and repositories. Added blueprints to app.py. Added files to the HTML structure to make a start on the front end.

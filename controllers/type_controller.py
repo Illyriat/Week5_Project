@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
-from models.type import type
-from repositories.type_repository import type_repository
+from models.type import Type
+import repositories.type_repository as type_repository
 
 types_blueprint = Blueprint("type", __name__)
 

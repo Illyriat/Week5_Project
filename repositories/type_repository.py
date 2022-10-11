@@ -6,11 +6,10 @@ from models.manufacture import Manufacture
 from repositories.product_repository import product
 
 def save(type):
-    sql = "INSERT INTO types(type) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id"
-    values = [type.type, type.type_id]
+    sql = "INSERT INTO types(name) VALUES (%s) RETURNING id"
+    values = [type.type]
     results = run_sql(sql, values)
-    id = results[0]['id']
-    type.id = id
+    type.id = results[0]['id']
     return type
 
 def select_all():
@@ -20,20 +19,22 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        product = product.select(row['manufacture_id'])
-        type = Type(row['model'], row['descriptin'], row['stock_count'], row['trade_price'], row['sale_price'], row['id'], manufacture)
+        type = Type(row['name'], row['id'])
         types.append(type)
     return types
 
-def manufacture():
-    sql = "SELECT * FROM manufactures WHERE id = %s"
-    values = [type.manufacture.id]
-    results = run_sql(sql, values)[0]
-    type = Type(results['model'], results['id'])
-    return manufacture
+def select(id):
+    type = None
+    sql = "SELECT * FROM types WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        type = Type(result['name'], result['id'])
+    return type
 
 def delete_all():
-    sql = "DELETE FROM manufactures"
+    sql = "DELETE FROM types"
     run_sql(sql)
 
 def delete(id):
