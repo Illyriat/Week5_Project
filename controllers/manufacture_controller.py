@@ -12,9 +12,18 @@ def manufactures():
     manufactures = manufacture_repository.select_all()
     return render_template("manufactures/index.html", manufactures = manufactures)
 
-@manufactures_blueprint.route("/manufactures/<id>")
-def show(id):
-    manufactures = manufacture_repository.select(id)
-    products = product_repository.manufactures(products)
-    types = type_repository.manfactures(types)
-    return render_template("/manufactures/show.html", manufactures = manufactures, type = types, product = products)
+
+# SHOW
+# @manufactures_blueprint.route("/manufactures/<id>")
+# def show(id):
+#     manufactures = manufacture_repository.select(id)
+#     products = product_repository.manufactures(products)
+#     types = type_repository.manfactures(types)
+#     return render_template("/manufactures/show.html", manufactures = manufactures, type = types, product = products)
+
+
+# NEW
+@manufactures_blueprint.route("/manufacture/new", methods=['GET'])
+def new_manufacture():
+    manufactures = manufacture_repository.select_all()
+    return render_template("/manufacture/new.html", manufactures = manufactures)

@@ -15,11 +15,13 @@ def home():
     products = product_repository.select_all()
     return render_template("index.html", products = products)
 
+# List of Products in the DB
 @products_blueprint.route("/products")
 def products():
     products = product_repository.select_all()
     return render_template("products/index.html", products = products)
 
+# SHOW
 # @products_blueprint.route("/products/<id>")
 # def show(id):
 #     product = product_repository.select(id)

@@ -1,12 +1,12 @@
 Week 5 Project
 
-First Commit -- 
+1 -- 
 
 File Structure, models, run_sql, .flaskenv, .gitignore, app.py. All complete
 
 --------------------------------------
 
-Second Commit, weekend target -- 
+2 -- 
 
 Console without dummy information.
 Repositories, controllers and stock_manager all in their first itteration/complete.
@@ -14,30 +14,37 @@ Added some HTML files into the files structure.
 
 -------------------------------------
 
-Third Commit, --
+3 --
 
 Repositories and Controller work. Save point.
 
 -------------------------------------
 
-Fourth Commit, --
+4 --
 
 Repositories and Controller work. Save point. Fixed some DB conflicts and typos
 
 --------------------------------------
 
-Fifth Commit, --
+5 --
 
 Major changes to file structure to consolidate and make it all simpler to navigate around. Added some HTML to the base.html file.
 
 --------------------------------------
 
-Sixth Commit, --
+6 --
 
 Fixed DB issuesin the controllers, models, and repositories. Added blueprints to app.py. Added files to the HTML structure to make a start on the front end.
 
 --------------------------------------
 
-Seventh Commit --
+7 --
 
 HTML pages started. adding products to pages works. 
+
+---------------------------------------
+
+8 -- 
+
+save point after some minor renaming of nav bar and alterations to the order. 
+Save point before Add Manufacture attempt
