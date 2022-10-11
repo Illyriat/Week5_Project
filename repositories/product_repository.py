@@ -10,7 +10,7 @@ import repositories.manufacture_repository as manufacture_repository
 
 
 def save(product):
-    sql = "INSERT INTO products(model, description, stock_count, trade_price, sale_price, manufacture_id, type_id) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING id"
+    sql = "INSERT INTO products(model, description, stock_count, trade_price, sale_price, manufacture_id, type_id) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING *"
     values = [product.model, product.description, product.stock_count, product.trade_price, product.sale_price, product.manufacture.id, product.type.id]
     results = run_sql(sql, values)
     id = results[0]['id']
@@ -25,7 +25,8 @@ def select_all():
 
     for row in results:
         manufacture = manufacture_repository.select(row['manufacture_id'])
-        product = Product(row['model'], row['descriptin'], row['stock_count'], row['trade_price'], row['sale_price'], manufacture, type, row['id'])
+        type = type_repository.select(row['type_id'])
+        product = Product(row['model'], row['description'], row['stock_count'], row['trade_price'], row['sale_price'], manufacture, type, row['id'])
         products.append(product)
     return products
 

@@ -1,13 +1,11 @@
 from db.run_sql import run_sql
 
-from controllers.manufacture_controller import manufactures
-
 from models.product import Product
 from models.manufacture import Manufacture
 
 
 def save(manufacture):
-    sql = "INSERT INTO manufactures(name) VALUES (%s) RETURNING id"
+    sql = "INSERT INTO manufactures(name) VALUES (%s) RETURNING *"
     values = [manufacture.name]
     results = run_sql(sql, values)
     id = results[0]['id']

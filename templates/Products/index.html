@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1>List of Products</h1>
+
+    <a href="/product/new">Add New Product</a>
+
+    {% for product in products %}
+
+    <p>{{ product.model }} {{ product.description }} {{ product.stock_count }} {{ product.trade_price }} {{ product.sale_price }} {{ product.manufacture.name }} {{ product.type.type }}</p>
+        
+    {% endfor %}
+
+
+<p></p>
+{% endblock content %}

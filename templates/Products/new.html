@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+  <h1></h1>
+  <section>
+    <form action="/products" method="post">
+        <label name="model">Model</label>
+        <input type="text" name="model", placeholder="model" id="model">
+
+        <label name="description">Description</label>
+        <input type="text" name="description" placeholder="description" id="description">
+
+        <label name="stock_count">Stock Count</label>
+        <input type="int" name="stock_count" placeholder="stock_count" id="stock_count">
+
+        <label name="trade_price">Trade Price</label>
+        <input type="number" step=".01" name="trade_price" placeholder="trade_price" id="trade_price">
+
+        <label name="sale_price">Sale Price</label>
+        <input type="number" step=".01" name="sale_price" placeholder="sale_price" id="sale_price">
+
+        <label name="manufacture">Manufacture</label>
+        <select name="manufacture">
+            {% for manufacture in manufactures  %}
+                <option value="{{ manufacture.id }}">
+                    {{ manufacture.name }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <label name="type">Type</label>
+        <select name="type">
+            {% for type in types  %}
+                <option value="{{ type.id }}">
+                    {{ type.type }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <input type="submit" value="product_submit">  
+    </form>
+  </section>
+{% endblock content %}

@@ -35,3 +35,9 @@ Major changes to file structure to consolidate and make it all simpler to naviga
 Sixth Commit, --
 
 Fixed DB issuesin the controllers, models, and repositories. Added blueprints to app.py. Added files to the HTML structure to make a start on the front end.
+
+--------------------------------------
+
+Seventh Commit --
+
+HTML pages started. adding products to pages works. 

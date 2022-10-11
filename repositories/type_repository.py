@@ -6,7 +6,7 @@ from models.manufacture import Manufacture
 from repositories.product_repository import product
 
 def save(type):
-    sql = "INSERT INTO types(name) VALUES (%s) RETURNING id"
+    sql = "INSERT INTO types(name) VALUES (%s) RETURNING *"
     values = [type.type]
     results = run_sql(sql, values)
     type.id = results[0]['id']
