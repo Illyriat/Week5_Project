@@ -58,25 +58,26 @@ def create_product():
 @products_blueprint.route("/products/<id>/update", methods=['GET'])
 def edit_products(id):
     product = product_repository.select(id)
-    manufacture = manufacture_repository.select_all()
-    return render_template('products/update.html', product = product, manufacture = manufacture)
+    manufactures = manufacture_repository.select_all()
+    types = type_repository.select_all()
+    return render_template('products/update.html', product = product, manufactures = manufactures, types = types)
 
 
 # UPDATE
 @products_blueprint.route("/products/<id>", methods=['POST'])
 def update_products(id):
-    manufacture_id = request.form['manufacture']
-    type_id = request.form['type']
     model = request.form['model']
     description = request.form['description']
     stock_count = request.form['stock_count']
     trade_price = request.form['trade_price']
     sale_price = request.form['sale_price']
-    manufacture = manufacture_repository.select(manufacture_id)
-    type = type_repository.select(type_id)
-    product = Product(model, description, stock_count, trade_price, sale_price, manufacture, type, id)
+    manufacture = request.form['manufacture_id']
+    type = request.form['type_id']
+    m = manufacture_repository.select(manufacture)
+    t = type_repository.select(type)
+    product = Product(model, description, stock_count, trade_price, sale_price, m, t, id)
     product_repository.update(product)
-    return redirect('/products/index.html')
+    return redirect('/products')
 
 # DELETE
 @products_blueprint.route("/products/<id>/delete", methods=['POST'])

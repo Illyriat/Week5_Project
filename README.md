@@ -55,3 +55,9 @@ Save point before Add Manufacture attempt
 
 Add manufacture added in and works
 Added update and delete. update is still buggy. Delete works.
+
+---------------------------------------
+
+10 --
+
+MVP complete. Fully working webapp

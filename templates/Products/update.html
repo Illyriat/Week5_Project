@@ -5,33 +5,53 @@
 <section>
   <form action="/products/{{product.id}}" method="post">
       <label name="model">Model</label>
-      <input type="text" name="model", placeholder="model" id="model">
+      <input type="text" name="model" value="{{ product.model }}" id="model">
 
       <label name="description">Description</label>
-      <input type="text" name="description" placeholder="description" id="description">
+      <input type="text" name="description" value="{{ product.description }}" id="description">
 
       <label name="stock_count">Stock Count</label>
-      <input type="int" name="stock_count" placeholder="stock_count" id="stock_count">
+      <input type="int" name="stock_count" value="{{ product.stock_count }}" id="stock_count">
 
       <label name="trade_price">Trade Price</label>
-      <input type="number" step=".01" name="trade_price" placeholder="trade_price" id="trade_price">
+      <input type="number" step=".01" name="trade_price" value="{{ product.trade_price }}" id="trade_price">
 
       <label name="sale_price">Sale Price</label>
-      <input type="number" step=".01" name="sale_price" placeholder="sale_price" id="sale_price">
+      <input type="number" step=".01" name="sale_price" value="{{ product.sale_price }}" id="sale_price">
 
-      <label name="manufacture">Manufacture</label>
-      <select name="manufacture">
+
+
+      <!-- <select name=“baker_id”>
+        {% for baker in all_bakers  %}
+        <option value=“{{ baker.id }}”
+            {% if cake.baker.id == baker.id %} selected=“selected” {% endif %}>
+            {{ baker.full_name }}
+        </option>
+        {% endfor %}
+    </select> -->
+
+
+
+        <!-- <input name="manufacture_id" type="text" value="{{ product.manufacture.id }}">
+        <input name="type_id" type="text" value="{{ product.type.id }}"> -->
+      <label>Manufacture</label>
+      <select name="manufacture_id">
           {% for manufacture in manufactures  %}
-              <option value="{{ manufacture.id }}">
+              <option value="{{ manufacture.id }}"
+                {% if product.manufacture.id == manufacture.id %} selected = selected {% endif %}>
                   {{ manufacture.name }}
               </option>
           {% endfor %}
       </select>
 
-      <label name="type">Type</label>
-      <select name="type">
+      <label>Type</label>
+      <select name="type_id">
           {% for type in types  %}
-              <option value="{{ type.id }}">
+              <option value="{{ type.id }}"
+              {% if product.type.id == type.id %}
+              selected = selected
+          {% endif %}
+              >
                   {{ type.type }}
               </option>
           {% endfor %}

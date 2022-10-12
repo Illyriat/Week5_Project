@@ -27,9 +27,10 @@ def select(id):
     manufacture = None
     sql = "SELECT * FROM manufactures WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)[0]
+    results = run_sql(sql, values)
 
-    if result is not None:
+    if results:
+        result = results[0]
         manufacture = Manufacture(result['name'], result['id'])
     return manufacture
 
