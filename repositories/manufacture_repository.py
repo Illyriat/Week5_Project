@@ -48,3 +48,8 @@ def products(manufacture):
 def delete_all():
     sql = "DELETE FROM manufactures"
     run_sql(sql)
+
+def delete(id):
+    sql = "DELETE FROM manufactures WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)

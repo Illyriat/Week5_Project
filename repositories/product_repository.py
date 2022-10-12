@@ -37,7 +37,9 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        product = Product(result['model'], result['description'], result['stock_count'], result['trade_price'], result['sale_price'], manufacture['id'], type['id'], result['id'])
+        manufacture = manufacture_repository.select(result['id'])
+        type = type_repository.select(result['id'])
+        product = Product(result['model'], result['description'], result['stock_count'], result['trade_price'], result['sale_price'], manufacture, type, result['id'])
     return product
 
 def manufacture():
@@ -46,6 +48,16 @@ def manufacture():
     results = run_sql(sql, values)[0]
     product = Product(results['model'], results['id'])
     return manufacture
+
+def update(product):
+    sql = """
+    UPDATE products SET 
+    (model, description, stock_count, trade_price, sale_price, manufacture, type
+    (%s, %s, %s, %s, %s, %s, %s)
+    WHERE id = %s
+    """
+    values = [product.model, product.description, product.stock_count, product.trade_price, product.sale_price, product.manufacture, product.type]
+    run_sql(sql, values)
 
 def delete_all():
     sql = "DELETE FROM manufactures"

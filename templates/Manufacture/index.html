@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>List of Manufacturers</h1>
+
+    <a href="/manufacture/new">Using a new Manufacturer? Add them here</a>
+
+    {% for manufacture in manufactures %}
+
+    <p>{{ manufacture.name }}</p>
+
+    {% endfor %}
+{% endblock content %}

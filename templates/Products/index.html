@@ -7,9 +7,24 @@
     <a href="/product/new">Add New Product</a>
 
     {% for product in products %}
+    <section>
+    <p>{{ product.model }} {{ product.manufacture.name }} {{ product.type.type }} {{ product.description }} {{ product.stock_count }} {{ product.trade_price }} {{ product.sale_price }} </p>
+        <form action="/products/{{product.id}}/update">
+            <button>Update</button>
+        </form>
+        <form action="/products/{{ product.id }}/delete" method="post">
+            <button>Delete</button>
+        </form>
 
-    <p>{{ product.model }} {{ product.description }} {{ product.stock_count }} {{ product.trade_price }} {{ product.sale_price }} {{ product.manufacture.name }} {{ product.type.type }}</p>
-        
+    {% if product.stock_count == 2 %}
+        <span>&#10071 You are low on stock!</span>
+    {% endif %}
+
+    {% if product.stock_count == 0 %}
+        <span>&#10071 OUT OF STOCK!</span>
+    {% endif %}
+
+    </section>
     {% endfor %}
 
 

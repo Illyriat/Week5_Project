@@ -48,3 +48,10 @@ HTML pages started. adding products to pages works.
 
 save point after some minor renaming of nav bar and alterations to the order. 
 Save point before Add Manufacture attempt
+
+----------------------------------------
+
+9 --
+
+Add manufacture added in and works
+Added update and delete. update is still buggy. Delete works.
